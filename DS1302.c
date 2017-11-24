@@ -82,7 +82,7 @@ static void DS1302_SendCmd(uint8_t cmd) {
 /* Writes a byte to 'addr' */
 static void DS1302_WriteByte(uint8_t addr, uint8_t d)
 {
-	uint8_t i;
+	int i;
 
 	HAL_GPIO_WritePin(DS1302_GPIO, DS1302_RST,  GPIO_PIN_SET);	
 	
@@ -115,8 +115,8 @@ static void DS1302_WriteByte(uint8_t addr, uint8_t d)
 /* Reads a byte from addr */
 static uint8_t DS1302_ReadByte(uint8_t addr) 
 {
-	uint8_t i;
-	uint8_t temp = 0;
+	int i;
+	int temp = 0;
 
 
 	HAL_GPIO_WritePin(DS1302_GPIO, DS1302_RST,  GPIO_PIN_SET);	
@@ -171,7 +171,7 @@ void DS1302_WriteTime(uint8_t *buf)
 /* Reads time byte by byte to 'buf' */
 void DS1302_ReadTime(uint8_t *buf)  
 { 
-   	uint8_t tmp;
+   	int tmp;
 	
 	tmp = DS1302_ReadByte(DS1302_YEAR); 	
 	buf[1] = BCD2HEX(tmp);		 
