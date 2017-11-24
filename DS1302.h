@@ -22,16 +22,4 @@ uint8_t DS1302_ReadRam(uint8_t addr);
 /* Clears the entire ram writing 0 */
 void DS1302_ClearRam(void);
 
-/* Reads time in burst mode, includes control byte */
-void DS1302_ReadTimeBurst(uint8_t * temp);
-
-/* Writes time in burst mode, includes control byte */
-void DS1302_WriteTimeBurst(uint8_t * buf);
-
-/* Reads ram in burst mode 'len' bytes into 'buf' */
-void DS1302_ReadRamBurst(uint8_t len, uint8_t * buf);
-
-/* Writes ram in burst mode 'len' bytes from 'buf' */
-void DS1302_WriteRamBurst(uint8_t len, uint8_t * buf);
-
 #endif
